@@ -22,7 +22,7 @@ spec:
           - containerPort: 8501
         envFrom:
           - secretRef:
-              name: llmops-secrets 
+              name: anime-secrets 
 
 ---
 apiVersion: v1
