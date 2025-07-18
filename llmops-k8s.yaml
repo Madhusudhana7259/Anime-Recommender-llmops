@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: llmops-app
+  name: anime-app
   labels:
-    app: llmops
+    app: anime
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: llmops
+      app: anime
   template:
     metadata:
       labels:
-        app: llmops
+        app: anime
     spec:
       containers:
-      - name: llmops-container
-        image: llmops-app:latest  # Use local image
+      - name: anime-container
+        image: anime-app:latest  # Use local image
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8501
@@ -28,11 +28,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: llmops-service
+  name: anime-service
 spec:
   type: LoadBalancer
   selector:
-    app: llmops
+    app: anime
   ports:
     - protocol: TCP
       port: 80
